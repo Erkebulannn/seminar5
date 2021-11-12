@@ -1,18 +1,14 @@
-try:
-    Erke = open("mailbox.txt")
-except:
-    print('File cannot be opened')
-    exit()
+fin=open('mailbox.txt')
 
-lines=Erke.readlines()
+lines=fin.readlines()
 file=open('output.txt', 'w')
+
 for line in lines:
-    if 'Details:' in line:
-        ind=line.find('?view=rev&rev=')
-        en_ind=line.find(';')
-        word=line[ind+14:en_ind]
-        print(word) 
-        file.write(word)
-        file.write('\n')
-Erke.close()
+   if 'Details:'in line:
+     print(line[-6:-1])
+     file.write(line[-6:-1])
+     file.write('\n')
+fin.close()
 file.close()
+
+
